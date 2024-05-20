@@ -1,0 +1,44 @@
+{{template "header"}}
+<main class="container">
+    {{if ne .status ""}}
+    <div class="alert alert-{{.status}} alert-dismissible fade show" role="alert">
+        <strong>{{.message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{end}}
+    <h1>Resources</h1>
+
+    <section class="d-flex gap-3">
+        <a class="btn btn-danger d-flex align-items-center" href="generate-pdf">
+            <span class="material-icons">
+                picture_as_pdf
+            </span>
+            Generic Pdf</a>
+        <a class="btn btn-primary d-flex align-items-center" href="generate-excel">
+            <!-- <span class="material-symbols-outlined">
+            draft
+            </span> -->
+            Generic Excel</a>
+        <a class="btn btn-secondary d-flex align-items-center" href="generate-qr">
+            <span class="material-icons">
+                qr_code_scanner
+            </span>
+            Generic Qr</a>
+
+        <a class="btn btn-secondary d-flex align-items-center disabled" href="generate-email">
+            <span class="material-icons">
+                email
+            </span>
+            Generic Email</a>
+    </section>
+
+
+    {{if ne .qr ""}}
+    <h2>Mi qr</h2>
+    <img src="data:image/png;base64,{{.qr}}" alt="" srcset="">
+    {{end}}
+</main>
+
+{{template "footer"}}

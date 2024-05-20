@@ -1,0 +1,23 @@
+{{template "header"}}
+<main class="container">
+
+
+
+
+    <div class="d-flex justify-content-between flex-wrap gap-2">
+        {{range .Results}}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{.Image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{.Name}}</h5>
+            </div>
+        </div>
+        {{end}}
+    </div>
+
+
+
+
+</main>
+
+{{template "footer"}}

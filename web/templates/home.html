@@ -1,0 +1,58 @@
+
+<!-- usar plantilla dinamica -->
+{{template "header"}}
+<main class="container">
+    <h1>Home</h1>
+
+    <h2>Session data</h2>
+    <hr>
+
+    <!--
+        Crear variable
+     -->
+    <h2>Crear variable</h2>
+    {{with $value := "Sebas"}}
+    {{$value}}
+    {{end}}
+
+    <hr>
+    <h2>Obtener valor de una estructura</h2>
+    <h3>name: {{.Name}}</h3>
+    <p>edad: {{.Age}}</p>
+
+
+    <hr>
+
+    <!--
+
+        eq ==
+        ne !=
+        lt <
+        le <=
+        gt >
+        ge >=
+
+     -->
+    <h2>Condicionales</h2>
+    {{if lt .Age 18}}
+    <p>Eres un cachorro</p>
+    {{else}}
+    <p>Eres un jefe</p>
+    {{end}}
+    <hr>
+
+    <h2>Iteraciones</h2>
+    {{.Skills}}
+    <ul>
+        {{range .Skills}}
+        <li>{{.Name}}</li>
+        {{end}}
+    </ul>
+
+    <hr>
+    <h2>Recursos estaticos</h2>
+    <img src="/assets/images/go_1.png" alt="" srcset="">
+    <button onclick="greeting()">Saludar</button>
+</main>
+
+{{template "footer"}}

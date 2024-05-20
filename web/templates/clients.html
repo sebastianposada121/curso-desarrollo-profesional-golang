@@ -1,0 +1,39 @@
+{{template "header"}}
+<main class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">phone</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <th scope="row">{{.Id}}</th>
+                <td>{{.Name}}</td>
+                <td>{{.Email}}</td>
+                <td>{{.Phone}}</td>
+                <td>
+                    <a href="edit-client/{{.Id}}">
+                        <span class="material-icons">
+                            edit
+                        </span>
+                    </a>
+                    <a href="delete-client/{{.Id}}">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+
+</main>
+
+{{template "footer"}}

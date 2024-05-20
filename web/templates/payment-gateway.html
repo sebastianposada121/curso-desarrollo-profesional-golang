@@ -1,0 +1,53 @@
+{{template "header"}}
+<main class="container">
+
+    <section class="d-flex gap-1">
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">Webpay</h5>
+                <strong>Keyboard</strong>
+                <p>10.000</p>
+                <p>{{.webpay.Url}}</p>
+                <p>{{.webpay.Token}}</p>
+
+                <form action="{{.webpay.Url}}" method="POST" name="webpay-form">
+                    <input type="hidden" name="token_ws" id="tokwn_ws" value="{{.webpay.Token}}">
+                    <a href="javascript:void(0);" onclick="document['webpay-form'].submit()" class="btn btn-danger">
+                        Go pay
+                    </a>
+                </form>
+
+                <a class="btn btn-primary" href="/webpay">Comprar con webpay</a>
+            </div>
+
+        </div>
+
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">Paypal</h5>
+                <strong>Keyboard</strong>
+                <p>USD10</p>
+                <p>Token: {{.PaypalToken}}</p>
+                <p>Id: {{.PaypalId}}</p>
+
+                <p>status {{.PaypalStatus}}</p>
+                <a href="https://www.sandbox.paypal.com/checkoutnow?token={{.PaypalId}}"
+                    onclick="document['webpay-form'].submit()" class="btn btn-danger" target="_blank">
+                    Go pay
+                </a>
+
+                <a class="btn btn-primary" href="/paypal">Comprar con paypal</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    {{.}}
+
+
+</main>
+
+
+
+{{template "footer"}}
